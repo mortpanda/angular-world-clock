@@ -45,6 +45,8 @@ import { SamplePageComponent } from './sample-page/sample-page.component';
 //import { AuthNoticeComponent } from './auth-notice/auth-notice.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AuthNoticeComponent } from './auth-notice/auth-notice.component';
+import { ClocksComponent } from './clocks/clocks.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,7 @@ import { AuthNoticeComponent } from './auth-notice/auth-notice.component';
     LoginComponent,
     SamplePageComponent,
     AuthNoticeComponent,
+    ClocksComponent,
     //AuthNoticeComponent,
    
     
@@ -101,6 +104,7 @@ import { AuthNoticeComponent } from './auth-notice/auth-notice.component';
   ],
   providers: [
     OktaSDKAuthService,    
+    DatePipe,
   ], 
 
   
