@@ -7,6 +7,7 @@ import { OktaAuth} from '@okta/okta-auth-js'
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { OktaConfigService } from "app/shared/okta/okta-config.service";
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
