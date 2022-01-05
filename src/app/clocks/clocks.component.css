@@ -1,3 +1,28 @@
+.strCity{
+  color:#00297A!important;
+  font-size: 30px!important;
+  font-weight: 500!important;
+  text-align: center!important;
+  margin-top: 15px!important;
+  /* vertical-align: middle!important; */
+}
+
+.strLocalDate{
+  color:#41414B!important;
+  font-size: 20px!important;
+  font-weight: 600!important;
+  text-align: center!important;
+  margin-top: 15px!important;
+}
+
+.strLocalTime{
+  color:#00297A!important;
+  font-size: 28px!important;
+  font-weight: 600!important;
+  text-align: center!important;
+  margin-top: 15px!important;
+}
+
 .userText {
   color: #ffffff !important;
   text-align: center !important;
@@ -13,13 +38,15 @@
 }
 
 .item {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 120px;
   background-color: #ffffff;
   margin: 5px;
   border-radius: 5px!important;
   font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
  "Cantarell", "Helvetica Neue", sans-serif!important;
+ text-align: center!important;
+ 
 }
 
 .fxcontainer {

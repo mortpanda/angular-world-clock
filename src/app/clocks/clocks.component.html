@@ -5,23 +5,29 @@
 
 <div class="page-header" style="background-image: url('assets/img/lilac_back.png')">
   <!-- <div class="page-header" style="background-color: #00297A"> -->
-  
-    <div class="fxcontainer" fxLayout="row wrap" fxLayoutAlign="center">
-      <div class="item userNameItem" fxFlex="0 0 90%">ようこそ <h1>{{this.OktaGetTokenService.strUserName}}</h1></div>
-      <div class="item">
-        <a class="btn btn-danger btn-round" class="btn btn-danger btn-round" id="login"  id="widget" (click)="GetTime()" >Widget</a>
-      </div>
-      <div class="item">5</div>
-      <div class="item">5</div>
-      <div class="item">5</div>
-      <div class="item">5</div>
-      <div class="item">5</div>
-      <div class="item">5</div>
-      <div class="item">5</div>
-      <div class="item">5</div>
-      <div class="item">5</div>
-      
-      <div class="item">Last</div>
+
+  <div class="fxcontainer" fxLayout="row wrap" fxLayoutAlign="center start">
+    <div class="item userNameItem" fxFlex="0 0 90%">ようこそ <h1>{{this.OktaGetTokenService.strUserName}}</h1>
     </div>
-  
-    <!-- </div> -->
+
+    <div class="item">
+      <div class="strCity">Tokyo</div>
+      <div class="strLocalDate">{{ strTokyoDate }}</div>
+      <div class="strLocalTime">{{ strTokyoTime }}</div>
+    </div>
+
+    <div class="item">
+      <div class="strCity">San Francisco</div>
+      <div class="strLocalDate">{{ strSanFranDate }}</div>
+      <div class="strLocalTime">{{ strSanFranTime }}</div>
+    </div>
+
+    <div class="item">
+      <div class="strCity">London</div>
+      <div class="strLocalDate">{{ strLondonDate }}</div>
+      <div class="strLocalTime">{{ strLondonTime }}</div>
+    </div>
+    
+  </div>
+
+  <!-- </div> -->
