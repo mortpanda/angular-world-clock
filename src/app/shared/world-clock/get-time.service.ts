@@ -9,8 +9,14 @@ import { interval } from 'rxjs';
 })
 export class GetTimeService {
 
-
-
+  strSydneyDate;
+  strSydneyTime;
+  strSingaporeDate;
+  strSingaporeTime;
+  strNYDate;
+  strNYTime;
+  strUTCDate;
+  strUTCTime;
   strTokyoDate;
   strTokyoTime;
   strSanFranDate;
@@ -26,7 +32,7 @@ export class GetTimeService {
   ) { }
 
 
-
+  
   async GetTime(strTimeZone) {
 
     const FetchTime = fetch(this.strApiURL + strTimeZone, {
@@ -53,45 +59,44 @@ export class GetTimeService {
         this.strLondonTime = this.datePipe.transform(this.arrTimeData.datetime, "HH:mm", this.arrTimeData.utc_offset);
         break;
       }
+      case 'Australia/Sydney': {
+        this.strSydneyDate = this.datePipe.transform(this.arrTimeData.datetime, "MMMM d, yyyy", this.arrTimeData.utc_offset);
+        this.strSydneyTime = this.datePipe.transform(this.arrTimeData.datetime, "HH:mm", this.arrTimeData.utc_offset);
+        break;
+      }
+      case 'Asia/Singapore': {
+        this.strSingaporeDate = this.datePipe.transform(this.arrTimeData.datetime, "MMMM d, yyyy", this.arrTimeData.utc_offset);
+        this.strSingaporeTime = this.datePipe.transform(this.arrTimeData.datetime, "HH:mm", this.arrTimeData.utc_offset);
+        break;
+      }
+      case 'America/New_York': {
+        this.strNYDate = this.datePipe.transform(this.arrTimeData.datetime, "MMMM d, yyyy", this.arrTimeData.utc_offset);
+        this.strNYTime = this.datePipe.transform(this.arrTimeData.datetime, "HH:mm", this.arrTimeData.utc_offset);
+        break;
+      }
+      case 'Etc/UTC': {
+        this.strUTCDate = this.datePipe.transform(this.arrTimeData.datetime, "MMMM d, yyyy", this.arrTimeData.utc_offset);
+        this.strUTCTime = this.datePipe.transform(this.arrTimeData.datetime, "HH:mm", this.arrTimeData.utc_offset);
+        break;
+      }
     }
 
   }
 
 
 
-
-
-  colTokyo;
   async GetWorldTime() {
-
     interval(1000 * 5).subscribe(x => {
       this.GetTime(this.TimezoneDataService.TimeZoneTokyo);
       this.GetTime(this.TimezoneDataService.TimeZoneSanFran);
       this.GetTime(this.TimezoneDataService.TimeZoneLondon);
+      this.GetTime(this.TimezoneDataService.TimeZoneSingapore);
+      this.GetTime(this.TimezoneDataService.TimeZoneSydney);
+      this.GetTime(this.TimezoneDataService.TimeZoneNY);
+      this.GetTime(this.TimezoneDataService.TimeZoneUTC);
     })
 
-
-
-
-
-
-
-    // await this.GetTime(this.TimezoneDataService.TimeZoneTokyo)
-    // this.strTokyoDate = this.datePipe.transform(this.arrTimeData.datetime, "MMMM d, yyyy", this.arrTimeData.utc_offset);
-    // this.strTokyoTime = this.datePipe.transform(this.arrTimeData.datetime, "HH:mm", this.arrTimeData.utc_offset);
-
-    // await this.GetTime(this.TimezoneDataService.TimeZoneSanFran)
-    // this.strSanFranDate = this.datePipe.transform(this.arrTimeData.datetime, "MMMM d, yyyy", this.arrTimeData.utc_offset);
-    // this.strSanFranTime = this.datePipe.transform(this.arrTimeData.datetime, "HH:mm", this.arrTimeData.utc_offset);
-
-    // await this.GetTime(this.TimezoneDataService.TimeZoneLondon)
-    // this.strLondonDate = this.datePipe.transform(this.arrTimeData.datetime, "MMMM d, yyyy", this.arrTimeData.utc_offset);
-    // this.strLondonTime = this.datePipe.transform(this.arrTimeData.datetime, "HH:mm", this.arrTimeData.utc_offset);
-
-
   }
-
-
 
 
 }
