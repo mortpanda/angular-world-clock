@@ -86,7 +86,7 @@ export class GetTimeService {
 
 
   async GetWorldTime() {
-    interval(1000 * 5).subscribe(x => {
+    interval(1000 * 10).subscribe(x => {
       this.GetTime(this.TimezoneDataService.TimeZoneTokyo);
       this.GetTime(this.TimezoneDataService.TimeZoneSanFran);
       this.GetTime(this.TimezoneDataService.TimeZoneLondon);
