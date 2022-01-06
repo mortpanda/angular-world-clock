@@ -4,8 +4,7 @@ import { OktaGetTokenService } from 'app/shared/okta/okta-get-token.service';
 import { OktaSDKAuthService } from '../shared/okta/okta-auth.service';
 import { OktaAuth } from '@okta/okta-auth-js';
 import { GetTimeService } from 'app/shared/world-clock/get-time.service';
-import { TimezoneDataService } from 'app/shared/world-clock/timezone-data.service';
-import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-clocks',
@@ -20,9 +19,7 @@ export class ClocksComponent implements OnInit {
   constructor(
     public OktaGetTokenService: OktaGetTokenService,
     public OktaSDKAuthService: OktaSDKAuthService,
-    public GetTimeService: GetTimeService,
-    public TimezoneDataService: TimezoneDataService,
-    public datePipe: DatePipe,
+    public GetTimeService: GetTimeService,  
 
   ) { }
 
@@ -50,33 +47,12 @@ export class ClocksComponent implements OnInit {
         await window.location.replace('/');
       case true:
         this.OktaGetTokenService.GetAccessToken();
-        this.GetTime();
+        await this.GetTimeService.GetWorldTime();
         break;
     }
   }
 
-  strTokyoDate;
-  strTokyoTime;
-  strSanFranDate;
-  strSanFranTime;
-  strLondonDate;
-  strLondonTime;
-  async GetTime() {
-
-    await this.GetTimeService.GetTime(this.TimezoneDataService.TimeZoneTokyo)
-    this.strTokyoDate = this.datePipe.transform(this.GetTimeService.arrTimeData.datetime, "MMMM d, yyyy", this.GetTimeService.arrTimeData.utc_offset);
-    this.strTokyoTime = this.datePipe.transform(this.GetTimeService.arrTimeData.datetime, "HH:mm", this.GetTimeService.arrTimeData.utc_offset);
-
-    await this.GetTimeService.GetTime(this.TimezoneDataService.TimeZoneSanFran)
-    this.strSanFranDate = this.datePipe.transform(this.GetTimeService.arrTimeData.datetime, "MMMM d, yyyy", this.GetTimeService.arrTimeData.utc_offset);
-    this.strSanFranTime = this.datePipe.transform(this.GetTimeService.arrTimeData.datetime, "HH:mm", this.GetTimeService.arrTimeData.utc_offset);
-
-    await this.GetTimeService.GetTime(this.TimezoneDataService.TimeZoneLondon)
-    this.strLondonDate = this.datePipe.transform(this.GetTimeService.arrTimeData.datetime, "MMMM d, yyyy", this.GetTimeService.arrTimeData.utc_offset);
-    this.strLondonTime = this.datePipe.transform(this.GetTimeService.arrTimeData.datetime, "HH:mm", this.GetTimeService.arrTimeData.utc_offset);
-
-
-  }
+ 
 
 
 
