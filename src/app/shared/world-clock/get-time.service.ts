@@ -32,7 +32,7 @@ export class GetTimeService {
   ) { }
 
 
-  
+
   async GetTime(strTimeZone) {
 
     const FetchTime = fetch(this.strApiURL + strTimeZone, {
@@ -95,8 +95,9 @@ export class GetTimeService {
       this.GetTime(this.TimezoneDataService.TimeZoneNY);
       this.GetTime(this.TimezoneDataService.TimeZoneUTC);
     })
-
+    
   }
+
 
 
 }
